@@ -6,7 +6,7 @@ import AppText from './AppText'
 import Screen from './Screen'
 import PickerItem from './PickerItem'
 
-const AppPicker = ({ icon, items, onSelectItem, PickerItemComponent=PickerItem, selectedItem, placeholder, width="100%" }) => {
+const AppPicker = ({ icon, items, numberOfColumns = 1, onSelectItem, PickerItemComponent=PickerItem, selectedItem, placeholder, width="100%" }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -32,8 +32,10 @@ const AppPicker = ({ icon, items, onSelectItem, PickerItemComponent=PickerItem, 
           <FlatList 
             data={items}
             keyExtractor={item => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => 
               <PickerItemComponent
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);
