@@ -8,7 +8,7 @@ const store = async (key, value) => {
   try {
     const item = {
       value,
-      timestamp: Data.now()
+      timestamp: Date.now()
     }
     await AsyncStorage.setItem(prefix + key, JSON.stringify(item))
   } catch (error) {
@@ -17,14 +17,14 @@ const store = async (key, value) => {
 }
 
 const isExpired = (item) => {
-  const now = moment(Data.now());
+  const now = moment(Date.now());
   const storeTime = moment(item.timestamp);
   return now.diff(storeTime, 'minutes') > expiryInMinutes;
 }
 
 const get = async (key) => {
   try {
-    const value = await AsyncStorage.get(prefix + key);
+    const value = await AsyncStorage.getItem(prefix + key);
     const item = JSON.parse(value);
 
     if(!item) return null;

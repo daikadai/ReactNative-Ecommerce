@@ -14,7 +14,7 @@ const ListingsScreen = ({ navigation }) => {
   const getListingsApi = useApi(listingApi.getListings);
 
   useEffect(() => {
-    getListingsApi.request(1,2,3);
+    getListingsApi.request();
   },[])
 
   
@@ -22,7 +22,7 @@ const ListingsScreen = ({ navigation }) => {
     <Screen style={styles.screen}>
       {getListingsApi.error && <>
         <AppText>Couldn't retrieve the listing</AppText>
-        <AppButton title="Retry" onPress={loadListings} />
+        <AppButton title="Retry" onPress={getListingsApi.request} />
       </>}
       <ActivityIndicator visible={getListingsApi.loading}/>
       <FlatList
