@@ -22,6 +22,9 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Project for learning"
+    "description": "Project for learning",
+    "notification": {
+      "iosDisplayInForeground": true
+    }
   }
 }

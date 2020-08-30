@@ -6,7 +6,7 @@ import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
 import NewListingButton from './NewListingButton';
 import routes from './routes';
-import navigation from './RootNavigation';
+import navigation from './rootNavigation';
 import useNotifications from '../hooks/useNotifications';
 
 const Tab = createBottomTabNavigator();

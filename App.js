@@ -7,7 +7,8 @@ import AuthContext from './app/auth/context';
 import AppNavigator from './app/navigation/AppNavigator';
 import authStorage from './app/auth/storage';
 import { AppLoading } from 'expo';
-import { navigationRef } from './app/navigation/RootNavigation';
+import { navigationRef } from './app/navigation/rootNavigation';
+
 
 export default function App() {
   const [ user, setUser ] = useState();
