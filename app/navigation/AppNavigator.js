@@ -9,14 +9,18 @@ import AccountNavigator from './AccountNavigator';
 import expoPushTokenApi from '../api/expoPushToken';
 import NewListingButton from './NewListingButton';
 import routes from './routes';
+import navigation from './RootNavigation';
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
+   
    useEffect(() => {
     registerForPushNotification();
 
-    Notifications.addListener(notification => console.log(notification));
+    Notifications.addListener(notification => {
+      navigation.navigate('Account');
+    });
    },[])
 
   const registerForPushNotification = async () => {
@@ -30,6 +34,8 @@ const AppNavigator = () => {
       console.log('Error getting a push token', error);
     }
   }
+
+
   return (
   <Tab.Navigator>
     <Tab.Screen name="Feed" component={FeedNavigator} options={{ 
