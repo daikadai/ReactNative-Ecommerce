@@ -39,8 +39,9 @@ const RegisterScreen = () => {
     auth.logIn(authToken);
   }
   return (
-   <Screen style={styles.container}>
-      <ActivityIndicator visible={registerApi.loading || loginApi.loading}/>
+    <>
+    <ActivityIndicator visible={registerApi.loading || loginApi.loading}/>
+    <Screen style={styles.container}>
       <AppForm
         initialValues={{name: '', email: '', password: ''}}
         onSubmit={handleSubmit}
@@ -73,7 +74,8 @@ const RegisterScreen = () => {
          />
          <SubmitButton title="Register" />
       </AppForm>
-   </Screen>
+    </Screen>
+    </>
   )
 }
 
